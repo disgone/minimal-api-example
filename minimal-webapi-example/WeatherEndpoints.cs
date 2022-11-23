@@ -4,7 +4,8 @@ internal static class WeatherEndpoints
 {
     internal static RouteGroupBuilder AddWeatherEndpoints(this RouteGroupBuilder routeGroup)
     {
-        routeGroup.WithOpenApi();
+        routeGroup.WithOpenApi()
+            .RequireAuthorization();
 
         routeGroup.MapGet("/weatherforecast", () =>
             {
