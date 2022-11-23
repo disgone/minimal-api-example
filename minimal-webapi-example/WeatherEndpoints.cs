@@ -1,3 +1,5 @@
+using MinimumApiExample.Extensions;
+
 namespace MinimumApiExample;
 
 internal static class WeatherEndpoints
@@ -5,7 +7,8 @@ internal static class WeatherEndpoints
     internal static RouteGroupBuilder AddWeatherEndpoints(this RouteGroupBuilder routeGroup)
     {
         routeGroup.WithOpenApi()
-            .RequireAuthorization();
+            .RequireAuthorization()
+            .AddOpenApiSecurityRequirement();
 
         routeGroup.MapGet("/weatherforecast", () =>
             {
